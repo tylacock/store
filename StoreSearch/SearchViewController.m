@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "SearchResult.h"
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
@@ -63,10 +64,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = self.searchResults[indexPath.row];
+    SearchResult *searchResult = self.searchResults[indexPath.row];
+    cell.textLabel.text = searchResult.name;
+    cell.detailTextLabel.text = searchResult.artistName;
     
     return cell;
 }
@@ -76,12 +79,20 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
     self.searchResults = [NSMutableArray arrayWithCapacity:20];
     
     for (int i = 0; i < 3; i++) {
-        [self.searchResults addObject:[NSString stringWithFormat:@"Fake result %d for '%@'", i, searchBar.text]];
+        SearchResult *searchResult = [[SearchResult alloc] init];
+        searchResult.name = [NSString stringWithFormat:@"Fake Result %d for",i];
+        searchResult.artistName = searchBar.text;
+        [self.searchResults addObject:searchResult];
     }
     
     [self.tableView reloadData];
+}
+
+-(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
 }
 @end
