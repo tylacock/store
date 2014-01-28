@@ -19,8 +19,8 @@
 		15B627B31898283500E63AC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B627951898283400E63AC9 /* UIKit.framework */; };
 		15B627BB1898283500E63AC9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15B627B91898283500E63AC9 /* InfoPlist.strings */; };
 		15B627BD1898283500E63AC9 /* StoreSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B627BC1898283500E63AC9 /* StoreSearchTests.m */; };
-		15B627C918982A0700E63AC9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B627C718982A0700E63AC9 /* SearchViewController.m */; };
-		15B627CA18982A0700E63AC9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B627C818982A0700E63AC9 /* SearchViewController.xib */; };
+		15B627CE18982E3500E63AC9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B627CC18982E3500E63AC9 /* SearchViewController.m */; };
+		15B627CF18982E3500E63AC9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B627CD18982E3500E63AC9 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +50,9 @@
 		15B627B81898283500E63AC9 /* StoreSearchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StoreSearchTests-Info.plist"; sourceTree = "<group>"; };
 		15B627BA1898283500E63AC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15B627BC1898283500E63AC9 /* StoreSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreSearchTests.m; sourceTree = "<group>"; };
-		15B627C618982A0700E63AC9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		15B627C718982A0700E63AC9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		15B627C818982A0700E63AC9 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		15B627CB18982E3500E63AC9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		15B627CC18982E3500E63AC9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		15B627CD18982E3500E63AC9 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +116,9 @@
 				15B627A11898283400E63AC9 /* AppDelegate.m */,
 				15B627A91898283400E63AC9 /* Images.xcassets */,
 				15B627981898283400E63AC9 /* Supporting Files */,
-				15B627C618982A0700E63AC9 /* SearchViewController.h */,
-				15B627C718982A0700E63AC9 /* SearchViewController.m */,
-				15B627C818982A0700E63AC9 /* SearchViewController.xib */,
+				15B627CB18982E3500E63AC9 /* SearchViewController.h */,
+				15B627CC18982E3500E63AC9 /* SearchViewController.m */,
+				15B627CD18982E3500E63AC9 /* SearchViewController.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 			files = (
 				15B627AA1898283400E63AC9 /* Images.xcassets in Resources */,
 				15B6279C1898283400E63AC9 /* InfoPlist.strings in Resources */,
-				15B627CA18982A0700E63AC9 /* SearchViewController.xib in Resources */,
+				15B627CF18982E3500E63AC9 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B627A21898283400E63AC9 /* AppDelegate.m in Sources */,
-				15B627C918982A0700E63AC9 /* SearchViewController.m in Sources */,
+				15B627CE18982E3500E63AC9 /* SearchViewController.m in Sources */,
 				15B6279E1898283400E63AC9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
