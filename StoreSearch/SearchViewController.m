@@ -53,6 +53,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.searchResults == nil) {
         return 0;
+    } else if ([self.searchResults count] == 0) {
+        return 1;
     } else {
         return [self.searchResults count];
     }
@@ -67,11 +69,31 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    SearchResult *searchResult = self.searchResults[indexPath.row];
-    cell.textLabel.text = searchResult.name;
-    cell.detailTextLabel.text = searchResult.artistName;
+    if ([self.searchResults count] == 0) {
+        cell.textLabel.text = @"(Nothing Found)";
+        cell.detailTextLabel.text = @"";
+
+    } else {
+        SearchResult *searchResult = self.searchResults[indexPath.row];
+        cell.textLabel.text = searchResult.name;
+        cell.detailTextLabel.text = searchResult.artistName;
+    }
+    
+    
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.searchResults count] == 0) {
+        return nil;
+    } else {
+        return indexPath;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -82,11 +104,13 @@
     [searchBar resignFirstResponder];
     self.searchResults = [NSMutableArray arrayWithCapacity:20];
     
-    for (int i = 0; i < 3; i++) {
-        SearchResult *searchResult = [[SearchResult alloc] init];
-        searchResult.name = [NSString stringWithFormat:@"Fake Result %d for",i];
-        searchResult.artistName = searchBar.text;
-        [self.searchResults addObject:searchResult];
+    if (![searchBar.text isEqualToString:@"nothing"]) {
+        for (int i = 0; i < 3; i++) {
+            SearchResult *searchResult = [[SearchResult alloc] init];
+            searchResult.name = [NSString stringWithFormat:@"Fake Result %d for",i];
+            searchResult.artistName = searchBar.text;
+            [self.searchResults addObject:searchResult];
+        }
     }
     
     [self.tableView reloadData];
@@ -95,4 +119,5 @@
 -(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
     return UIBarPositionTopAttached;
 }
+
 @end
